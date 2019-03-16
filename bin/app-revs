@@ -4,7 +4,7 @@ require "bundler/setup"
 require "app_revs_cli"
 
 
-AppRevsCli::CLI.new.coll
+AppRevsCli::CLI.new.call
 # AppRevsCli::Scraper.new.scrape_categories
 # AppRevsCli::Category.find_category_by_index(1)
 # AppRevsCli::Category.find_category_by_index(2)
