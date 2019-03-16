@@ -1,15 +1,13 @@
 # AppRevsCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/appRevsCli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the AppRevs CLI Gem. This Gem allows the user to discover business apps that may be useful for their business. The user selects the category they are interested in and then is shown the top 5 ranked options. The user then has the option to view the remaining apps that were outside the top 5 ranked.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'appRevsCli'
+gem 'app_revs_cli'
 ```
 
 And then execute:
@@ -18,11 +16,11 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install appRevsCli
+    $ gem install app_revs_cli
 
 ## Usage
 
-TODO: Write usage instructions here
+Type ruby bin/app_revs_cli into your terminal and follow the prompts displayed.
 
 ## Development
 
@@ -32,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'kcinnoy'/appRevsCli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/'kcinnoy'/app_revs_cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +38,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the AppRevsCli project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'kcinnoy'/appRevsCli/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the AppRevsCli project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/'kcinnoy'/app_revs_cli/blob/master/CODE_OF_CONDUCT.md).

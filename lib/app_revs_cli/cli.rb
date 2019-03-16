@@ -9,14 +9,13 @@ class AppRevsCli::CLI
 
   def header
     puts " ____________________________"
-    puts "|         AppRevs            |"
+    puts "|          AppRevs           |"
     puts "|                            |"
-    puts "|    Latest App Reviews      |"
+    puts "|  ** Latest App Reviews **  |"
     puts "|                            |"
     puts "|____________________________|"
     puts "\n"
   end
-
 
   def menu
     get_category_details
@@ -34,7 +33,6 @@ class AppRevsCli::CLI
     puts "\n"
     puts "What type of software are you interested in? (select options [1] to [#{@category_size}])"
   end
-
 
   def user_input
     @input = gets.strip.to_i
@@ -54,12 +52,5 @@ class AppRevsCli::CLI
     AppRevsCli::Scraper.new.scrape_apps(@category_object)
     AppRevsCli::App.show_app_list
   end
-
-
-
-
-
-  # category_url = AppRevsCli::Category.category_url(user_input)
-  # #AppRevsCli::Category.all
 
 end

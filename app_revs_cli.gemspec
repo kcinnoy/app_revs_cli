@@ -6,22 +6,22 @@ require "app_revs_cli/version"
 Gem::Specification.new do |spec|
   spec.name          = "app_revs_cli"
   spec.version       =  AppRevsCli::VERSION
-  spec.authors       = ["'Yonnick  .'"]
+  spec.authors       = ["'Yonnick'"]
   spec.email         = ["'yonnick00@gmail.com'"]
 
-  spec.summary       = %q{summary}
-  spec.description   = %q{this is a description}
-  spec.homepage      = "http://test.com"
+  spec.summary       = %q{A Gem that allows users to browse top rated business applications}
+  spec.description   = %q{This Gem allows the user to discover business apps that may be useful for their business.}
+  spec.homepage      = "https://github.com/kcinnoy/app_revs_cli"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "http://test.com"
+    spec.metadata["allowed_push_host"] = "'http://mygemserver.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "http://test.com"
-    spec.metadata["changelog_uri"] = "http://test.com"
+    spec.metadata["source_code_uri"] = "https://github.com/kcinnoy/app_revs_cli"
+    spec.metadata["changelog_uri"] = "'https://github.com/kcinnoy/app_revs_cli'"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
       "public gem pushes."
@@ -39,6 +39,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0.1"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_dependency "nokogiri", "~> 1.10.1"
-
-  #gem 'nokogiri', '~> 1.10', '>= 1.10.1'
 end

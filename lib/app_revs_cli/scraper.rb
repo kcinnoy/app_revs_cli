@@ -21,8 +21,7 @@ class AppRevsCli::Scraper
     list_section = @doc.search("div.listing")
     list_section.each do |app_item|
       app = AppRevsCli::App.new
-      # puts app.search.("h2.listing-title").text
-      app.name = app_item.search("h2.listing-title").text.split(" ")[0].strip
+      app.name = app_item.search("h2.listing-title").text.split(" ")[0].strip.gsub(/Software/, "")
       app.review = app_item.search("span.listing-overview").text
       app.total_reviews = app_item.search("a.rating-stars span").text.split(" ")[0]
       app.category = category_object.name

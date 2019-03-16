@@ -4,17 +4,8 @@ class AppRevsCli::Category
 
   @@all = []
 
-  # def self.find_category_url(category_index)
-  #   find_category_by_index(category_index).url
-  # end
-
   def save
     @@all << self
-  end
-
-  def add_app(app)
-    app.category = self unless app.category
-    @apps << app unless @apps.include?(app)
   end
 
   #class methods
