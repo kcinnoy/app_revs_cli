@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "app_revs_cli"
+
+
+AppRevsCli::CLI.new.coll
+# AppRevsCli::Scraper.new.scrape_categories
+# AppRevsCli::Category.find_category_by_index(1)
+# AppRevsCli::Category.find_category_by_index(2)
+# AppRevsCli::Category.category_url(1)
+# AppRevsCli::Category.category_url(1)
+
+# AppRevsCli::Scraper.new.scrape_apps(AppRevsCli::Category.find_category_by_index(1))
+#
+# AppRevsCli::App.list_apps
+#
+# AppRevsCli::Category.list_categories
+#
+# puts AppRevsCli::Category.all.size
+
+
+
+
+
+# input = "/business-intelligence-analytics-software/business-intelligence/"
+
+# input = get
+#
+# category_object_url = findObj_by_index(input).url
+
+# category_object_url =category_object.url
+#
+
+
+# site = AppRevsCli::Category.find_category_by_index(input)
+
+
+
+
+# AppRevsCli::Category.scrape_apps(object)
