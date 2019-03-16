@@ -52,8 +52,10 @@ class AppRevsCli::CLI
   def app_reviews
     @category_object = AppRevsCli::Category.find_category_by_index(@input)
     AppRevsCli::Scraper.new.scrape_apps(@category_object)
-    AppRevsCli::App.list_apps_with_detail
+    AppRevsCli::App.show_app_list
   end
+
+
 
 
 

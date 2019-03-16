@@ -1,19 +1,12 @@
 class AppRevsCli::Category
 
-  attr_accessor :name, :url, :application
+  attr_accessor :name, :url
 
   @@all = []
 
-  def self.find_category_by_index(index)
-    @@all[index-1]
-  end
-
-  def self.find_category_url(category_index)
-    find_category_by_index(category_index).url
-  end
-
-
-
+  # def self.find_category_url(category_index)
+  #   find_category_by_index(category_index).url
+  # end
 
   def save
     @@all << self
@@ -27,6 +20,10 @@ class AppRevsCli::Category
   #class methods
   def self.all
     @@all
+  end
+
+  def self.find_category_by_index(index)
+    @@all[index-1]
   end
 
   def self.list_categories
