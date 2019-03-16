@@ -20,12 +20,15 @@ class AppRevsCli::App
 
   def self.list_apps_with_detail
     @@all.each.with_index(1) do |app, index|
+      puts "\n"
       puts "#{index}) #{app.name}"
       puts "Category: #{app.category}"
-
       puts "Reviews (#{app.total_reviews})"
       puts "Review: (#{app.review})"
     end
+  end
+
+  def self.list_apps_with_detail
   end
 
 end

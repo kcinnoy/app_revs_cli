@@ -8,11 +8,7 @@ class AppRevsCli::Category
     @@all[index-1]
   end
 
-  def self.category_url(category_index)
-    find_category_by_index(category_index).url
-  end
-
-  def self.category_url(category_index)
+  def self.find_category_url(category_index)
     find_category_by_index(category_index).url
   end
 

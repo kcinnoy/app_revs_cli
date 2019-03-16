@@ -1,16 +1,10 @@
 
 class AppRevsCli::CLI
 
-
-
-  def coll
-    puts " comment goes here"
-  end
-
   def call
     header
     menu
-    # list_categories
+    app_reviews
   end
 
   def header
@@ -20,43 +14,48 @@ class AppRevsCli::CLI
     puts "|    Latest App Reviews      |"
     puts "|                            |"
     puts "|____________________________|"
+    puts "\n"
   end
 
 
-
   def menu
+    get_category_details
     selection_prompt
     user_input
   end
 
-  #
-
-
-
-  def selection_prompt
-    puts "\n What type of software are you interested in? (select options [1] to [])"
+  def get_category_details
+    AppRevsCli::Scraper.new.scrape_categories
+    AppRevsCli::Category.list_categories
+    @category_size = AppRevsCli::Category.all.size
   end
 
+  def selection_prompt
+    puts "\n"
+    puts "What type of software are you interested in? (select options [1] to [#{@category_size}])"
+  end
 
 
   def user_input
-    input = gets.strip
+    @input = gets.strip.to_i
 
-    case input
-      when between.(1,category_size)
-        AppRevsCli::App.scrape_apps(category_url)
+    case @input
+    when 1..@category_size
+        @input
       else
-        puts "Invalid selection choose a number that corresponds with the app category listed above. Your options are [1] to #{category_size}"
+        puts "Invalid selection choose a number that corresponds with the app category listed above. Your options are [1] to [#{@category_size}] "
+        user_input
     end
-    user_input
+
+  end
+
+  def app_reviews
+    @category_object = AppRevsCli::Category.find_category_by_index(@input)
+    AppRevsCli::Scraper.new.scrape_apps(@category_object)
+    AppRevsCli::App.list_apps_with_detail
   end
 
 
-  def get_category_details
-    AppRevsCli::Scraper.new.scrape_categories
-    category_size = AppRevsCli::Category.all.size
-    category_url = AppRevsCli::Category.all.size
-  end
 
   # category_url = AppRevsCli::Category.category_url(user_input)
   # #AppRevsCli::Category.all

@@ -25,7 +25,7 @@ class AppRevsCli::Scraper
       app.name = app_item.search("h2.listing-title").text.split(" ")[0].strip
       app.review = app_item.search("span.listing-overview").text
       app.total_reviews = app_item.search("a.rating-stars span").text.split(" ")[0]
-      app.category
+      app.category = category_object.name
 
       app.save
     end
