@@ -19,7 +19,7 @@ class AppRevsCli::Category
 
   def self.list_categories
     @@all.each.with_index(1) do |category, index|
-      puts "#{index}) #{category.name}"
+      puts "#{index}) #{category.name.chomp("Software")}"
     end
   end
 

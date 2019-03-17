@@ -30,7 +30,7 @@ class AppRevsCli::App
     @@all.each.with_index(1) do |app, index|
       puts "\n"
       puts "#{index}) #{app.name}"
-      puts "Category: #{app.category}"
+      puts "Category: #{app.category.chomp("Software")}"
       puts "Reviews #{app.total_reviews}"
       puts "Review: #{app.review}"
     end
@@ -41,7 +41,7 @@ class AppRevsCli::App
     first_five.each.with_index(1) do |app, index|
       puts "\n"
       puts "#{index}) #{app.name}"
-      puts "Category: #{app.category}"
+      puts "Category: #{app.category.chomp("Software")}"
       puts "Reviews: #{app.total_reviews}"
       puts "Summary: #{app.review}\n"
     end
@@ -66,7 +66,7 @@ class AppRevsCli::App
     remaining_apps = @@all[5..-1]
     remaining_apps.each.with_index(1) do |app, index|
       puts "\n#{index+5}) #{app.name}"
-      puts "Category: #{app.category}"
+      puts "Category: #{app.category.chomp("Software")}"
       puts "Reviews #{app.total_reviews}"
       puts "Review: #{app.review}\n"
       puts "\n"
