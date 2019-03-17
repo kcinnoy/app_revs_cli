@@ -50,21 +50,6 @@ class AppRevsCli::App
       puts "Reviews: #{app.total_reviews}"
       puts "Summary: #{app.review}\n"
     end
-    view_more_apps
-  end
-
-  def self.view_more_apps
-    puts "\nview remaining #{@@all.size-6} apps? [Y/n]"
-    input = gets.strip.downcase
-
-    if input == "y"
-      list_remaining_apps
-    elsif input == "n"
-      exit_message
-    else
-      puts "Invalid input please enter 'y' or 'n'"
-      view_more_apps
-    end
   end
 
   def self.list_remaining_apps
@@ -76,10 +61,6 @@ class AppRevsCli::App
       puts "Review: #{app.review}\n"
       puts "\n"
     end
-  end
-
-  def self.exit_message
-    puts "\nThanks for using AppRevs"
   end
 
 end

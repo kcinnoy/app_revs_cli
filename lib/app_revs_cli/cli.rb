@@ -20,6 +20,7 @@ class AppRevsCli::CLI
     get_category_details
     selection_prompt
     app_reviews
+    view_more_apps
   end
 
   def get_category_details
@@ -56,19 +57,16 @@ class AppRevsCli::CLI
 
   def app_reviews
     @app_size = AppRevsCli::App.all.size
-    puts @app_size
 
     if @app_size == 0
       @category_object = AppRevsCli::Category.find_category_by_index(@input)
       AppRevsCli::Scraper.new.scrape_apps(@category_object)
       AppRevsCli::App.show_app_list
-      return_to_menu
     else
       AppRevsCli::App.destroy_all
       @category_object = AppRevsCli::Category.find_category_by_index(@input)
       AppRevsCli::Scraper.new.scrape_apps(@category_object)
       AppRevsCli::App.show_app_list
-      return_to_menu
     end
   end
 
@@ -85,5 +83,25 @@ class AppRevsCli::CLI
       return_to_menu
     end
   end
+
+  def exit_message
+    puts "\nThanks for using AppRevs"
+  end
+
+  def view_more_apps
+    puts "\nview remaining #{AppRevsCli::App.all.size-6} apps? [Y/n]"
+    input = gets.strip.downcase
+
+    if input == "y"
+      AppRevsCli::App.list_remaining_apps
+      return_to_menu
+    elsif input == "n"
+      exit_message
+    else
+      puts "Invalid input please enter 'y' or 'n'"
+      view_more_apps
+    end
+  end
+
 
 end
