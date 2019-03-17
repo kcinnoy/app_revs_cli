@@ -12,6 +12,10 @@ class AppRevsCli::App
     puts @@all
   end
 
+  def sel.destroy_all
+    @@all.clear
+  end
+
   def self.show_app_list
     if @@all.size > 5
       list_apps_top_five
@@ -71,25 +75,25 @@ class AppRevsCli::App
       puts "Review: #{app.review}\n"
       puts "\n"
     end
-    return_to_menu
   end
 
   def self.exit_message
     puts "\nThanks for using AppRevs"
   end
 
-  def self.return_to_menu
-    puts "\nWould you like to return to the menu? [Y/n]"
-    input = gets.strip.downcase
-
-    if input == "y"
-      menu
-    elsif input == "n"
-      exit_message
-    else
-      puts "\nInvalid input please enter 'y' or 'n'"
-      return_to_menu
-    end
-  end
+  # def self.return_to_menu
+  #   puts "\nWould you like to return to the menu? [Y/n]"
+  #   input = gets.strip.downcase
+  #   @menu = AppRevsCli::CLI.menu
+  #
+  #   if input == "y"
+  #     @menu
+  #   elsif input == "n"
+  #     exit_message
+  #   else
+  #     puts "\nInvalid input please enter 'y' or 'n'"
+  #     return_to_menu
+  #   end
+  # end
 
 end

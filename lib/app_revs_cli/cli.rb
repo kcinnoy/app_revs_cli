@@ -4,7 +4,6 @@ class AppRevsCli::CLI
   def call
     header
     menu
-    app_reviews
   end
 
   def header
@@ -23,10 +22,26 @@ class AppRevsCli::CLI
     user_input
   end
 
+  def categories_created?
+    puts AppRevsCli::Category.all.size
+  #   klass = Module.const_get("AppRevsCli::xx")
+  #   return klass.is_a?(Class)
+  # rescue NameError
+  #   puts "does not exist"
+  end
+
+
   def get_category_details
-    AppRevsCli::Scraper.new.scrape_categories
-    AppRevsCli::Category.list_categories
     @category_size = AppRevsCli::Category.all.size
+
+    if @category_size == 0
+      AppRevsCli::Scraper.new.scrape_categories
+      AppRevsCli::Category.list_categories
+      @category_size = AppRevsCli::Category.all.size
+    else
+      AppRevsCli::Category.list_categories
+      @category_size = AppRevsCli::Category.all.size
+    end
   end
 
   def selection_prompt
@@ -44,13 +59,36 @@ class AppRevsCli::CLI
         puts "Invalid selection choose a number that corresponds with the app category listed above. Your options are [1] to [#{@category_size}] "
         user_input
     end
-
+    app_reviews
   end
 
   def app_reviews
-    @category_object = AppRevsCli::Category.find_category_by_index(@input)
-    AppRevsCli::Scraper.new.scrape_apps(@category_object)
-    AppRevsCli::App.show_app_list
+    @app_size = AppRevsCli::App.all.size
+
+    if @app_size == 0
+      @category_object = AppRevsCli::Category.find_category_by_index(@input)
+      AppRevsCli::Scraper.new.scrape_apps(@category_object)
+      AppRevsCli::App.show_app_list
+      return_to_menu
+    else
+      @category_object = AppRevsCli::Category.find_category_by_index(@input)
+      AppRevsCli::Scraper.new.scrape_apps(@category_object)
+      AppRevsCli::App.show_app_list
+      return_to_menu  
+  end
+
+  def return_to_menu
+    puts "\nWould you like to return to the menu? [Y/n]"
+    input = gets.strip.downcase
+
+    if input == "y"
+      menu
+    elsif input == "n"
+      exit_message
+    else
+      puts "\nInvalid input please enter 'y' or 'n'"
+      return_to_menu
+    end
   end
 
 end
